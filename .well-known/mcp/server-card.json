@@ -1,0 +1,15 @@
+{
+  "name": "alderpost-mcp",
+  "description": "8 bundled intelligence endpoints — domain security, company intel, threat analysis, compliance, sales intelligence, sports, property, and health data. Pay per call via x402 USDC on Base.",
+  "version": "1.0.0",
+  "tools": [
+    { "name": "domain_shield", "description": "Domain security scan: SPF, DKIM, DMARC, SSL, MX, DNSSEC. 7 checks scored 0-100. $0.25/call." },
+    { "name": "company_xray", "description": "Company intelligence: tech stack, infrastructure, social presence, business signals. 8 sources scored 0-100. $0.50/call." },
+    { "name": "threat_pulse", "description": "Threat intelligence: blacklists, open ports, SSL, email security. Scored 0-100. $0.35/call." },
+    { "name": "compliance_check", "description": "IT compliance audit: email auth, headers, cookies, privacy, DNSSEC. Letter graded. $0.85/call." },
+    { "name": "prospect_iq", "description": "Sales intelligence: web presence, tech stack, social signals, contact readiness. Scored 0-100. $0.40/call." },
+    { "name": "sports_edge", "description": "Pre-game sports intelligence: standings, odds, AI analysis. $0.50/call." },
+    { "name": "property_intel", "description": "Location intelligence: amenities, schools, elevation, walkability. Scored 0-100. $0.75/call." },
+    { "name": "health_signal", "description": "Health intelligence: FDA drug info, adverse events, recalls, nutrition. Risk scored. $0.30/call." }
+  ]
+}
