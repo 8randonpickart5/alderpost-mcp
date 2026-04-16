@@ -1,42 +1,25 @@
-# Alderpost MCP Server
+# alderpost-mcp
 
-MCP server for the [Alderpost Intelligence API](https://www.alderpost.co) — 8 bundled intelligence endpoints covering security, business, compliance, sales, sports, property, and health data.
+MCP server for [Alderpost Intelligence API](https://www.alderpost.co) — 8 bundled intelligence endpoints powered by premium data sources. Pay-per-call via x402 USDC on Base.
 
-Each tool calls a live API endpoint that bundles 5-8 data sources into a single scored response. Pay per call via x402 USDC on Base — no API keys, no subscriptions.
+## Endpoints
 
-## Tools
-
-| Tool | Description | Price |
-|------|-------------|-------|
-| `domain_shield` | Domain security: SPF, DKIM, DMARC, SSL, MX, DNSSEC | $0.25 |
-| `company_xray` | Company intel: tech stack, infrastructure, social, business signals | $0.50 |
-| `threat_pulse` | Threat intel: blacklists, ports, SSL, email security | $0.35 |
-| `compliance_check` | IT compliance: email auth, headers, cookies, privacy, DNSSEC | $0.85 |
-| `prospect_iq` | Sales intel: web presence, tech stack, social, contact readiness | $0.40 |
-| `sports_edge` | Pre-game intelligence: standings, odds, AI analysis | $0.50 |
-| `property_intel` | Location intel: amenities, schools, elevation, walkability | $0.75 |
-| `health_signal` | Health intel: FDA drug info, adverse events, recalls, nutrition | $0.30 |
+| Tool | Price | Premium Sources | Description |
+|------|-------|----------------|-------------|
+| `domain_shield` | $0.12 | VirusTotal | SPF, DKIM, DMARC, SSL, MX, DNSSEC + malware scan (70+ engines). Scored 0-100. |
+| `company_xray` | $0.15 | People Data Labs, Hunter.io | Industry, employees, revenue, tech stack, verified contacts. 9 sources. |
+| `threat_pulse` | $0.10 | VirusTotal, AbuseIPDB | Blacklists, ports, SSL + malware detection + IP abuse reports. 7 sources. |
+| `compliance_check` | $0.15 | Qualys SSL Labs | Email auth, OWASP headers, cookies, privacy, DNSSEC. 8 checks letter graded. |
+| `prospect_iq` | $0.12 | People Data Labs, Hunter.io | Web presence, tech stack, verified contacts, social signals. Sales scored. |
+| `sports_edge` | $0.12 | ESPN, The Odds API, Claude AI | Standings, odds from 15+ bookmakers, AI-generated game analysis. |
+| `property_intel` | $0.10 | US Census, OpenWeather | Amenities, schools, demographics, elevation, walkability. 7 sources. |
+| `health_signal` | $0.10 | NIH RxNorm, FDA | Drug interactions, adverse events, recalls, nutrition. Risk scored. |
 
 ## Install
 
-### Claude Desktop
+### Claude Desktop / Cursor
 
-Add to your `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "alderpost": {
-      "command": "npx",
-      "args": ["-y", "alderpost-mcp"]
-    }
-  }
-}
-```
-
-### Cursor
-
-Add to your `.cursor/mcp.json`:
+Add to your MCP config:
 
 ```json
 {
@@ -49,24 +32,24 @@ Add to your `.cursor/mcp.json`:
 }
 ```
 
-### Claude Code
+### Run directly
 
 ```bash
-claude mcp add alderpost -- npx -y alderpost-mcp
+npx -y alderpost-mcp
 ```
 
 ## How It Works
 
-Each tool makes an HTTP request to the corresponding Alderpost API endpoint. Endpoints are x402-protected — payment is handled via USDC on Base mainnet. For discovery-mode calls (no payment), you'll receive the 402 response with pricing and schema information.
+Each tool calls an Alderpost x402 endpoint. Endpoints return scored JSON with findings and recommendations. Payment is handled via x402 protocol — USDC on Base mainnet.
 
-For full paid access, use the [agentcash MCP](https://www.npmjs.com/package/x402scan-mcp) alongside this server, or integrate with any x402-compatible payment flow.
+One call to Alderpost replaces 5-8 individual API lookups. Example: `domain_shield` checks SPF, DKIM, DMARC, SSL, MX, DNSSEC, WHOIS, and VirusTotal in a single $0.12 request.
 
 ## Links
 
-- **Website**: [alderpost.co](https://www.alderpost.co)
-- **x402scan**: [x402scan.com](https://www.x402scan.com)
-- **API Docs**: [alderpost.co/llms.txt](https://www.alderpost.co/llms.txt)
+- [Alderpost](https://www.alderpost.co)
+- [API Documentation](https://www.alderpost.co/llms.txt)
+- [GitHub](https://github.com/8randonpickart5/alderpost-mcp)
 
 ## License
 
-MIT — Alderpost LLC, Wisconsin
+MIT — Alderpost LLC

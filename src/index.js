@@ -28,7 +28,7 @@ async function callEndpoint(path, params) {
 
 const server = new McpServer({
   name: "alderpost",
-  version: "1.1.0",
+  version: "1.1.1",
 });
 
 // ── Domain Shield ───────────────────────────────────────────────────────
