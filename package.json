@@ -1,6 +1,6 @@
 {
   "name": "alderpost-mcp",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "MCP server for Alderpost Intelligence API — 8 endpoints bundling premium data sources (VirusTotal, People Data Labs, Hunter.io, AbuseIPDB, Qualys SSL Labs, NIH RxNorm, US Census, ESPN, The Odds API). Domain security, company intel, threat analysis, compliance, sales intelligence, sports, property, and health data. Pay-per-call via x402 USDC on Base. $0.10-$0.15/call.",
   "type": "module",
   "main": "src/index.js",
@@ -41,6 +41,12 @@
     "@modelcontextprotocol/sdk": "^1.0.0",
     "zod": "^3.25.0"
   },
+  "files": [
+  "src/",
+  ".well-known/",
+  "LICENSE",
+  "README.md"
+],
   "engines": {
     "node": ">=18"
   }
